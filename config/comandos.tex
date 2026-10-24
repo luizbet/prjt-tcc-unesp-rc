@@ -9,21 +9,23 @@
 
 \newcommand{\exibirAbstract}{%
     \input{conteudo/03-pre-tex/abstract}%
-    \clearpage
 }
 
-% ----- COMANDO PARA EXIBIR SUMÁRIO (SEM NUMERAÇÃO) -----
+% ----- COMANDO PARA EXIBIR SUMÁRIO -----
 \newcommand{\exibirSumario}{%
-    \vspace*{0pt}
+    \vspace{0.3cm}
     \begin{center}
-        {\fontsize{14pt}{16pt}\selectfont\bfseries SUMÁRIO}
+        {\fontsize{12pt}{14pt}\selectfont\bfseries SUMÁRIO}
     \end{center}
-    \vspace{-3cm}
-    \renewcommand{\contentsname}{}
-    \thispagestyle{empty}
+    \vspace{0.1cm} % O espaço curto que você definiu
+    \begingroup
+    \renewcommand{\contentsname}{} % Remove o título automático do LaTeX
+    \setlength{\cftbeforetoctitleskip}{0pt} % Zera o espaço antes do título
+    \setlength{\cftaftertoctitleskip}{0pt}  % Zera o espaço depois do título
     \tableofcontents
+    \endgroup
     \thispagestyle{empty}
-    \clearpage
+    \clearpage 
 }
 
 % ----- COMANDOS PARA PÓS-TEXTUAIS -----
@@ -39,44 +41,44 @@
     \fi
 }
 
-% ----- AMBIENTES PRÉ-TEXTUAIS -----
+% ----- AMBIENTES PRÉ-TEXTUAIS (PADRONIZADOS) -----
 \newenvironment{resumo}{%
     \thispagestyle{empty}
-    \vspace*{0pt}
+    \vspace{0.3cm} % Mesmo espaço do capítulo
     \begin{center}
-        {\fontsize{14pt}{16pt}\selectfont\bfseries RESUMO}
+        {\fontsize{12pt}{14pt}\selectfont\bfseries RESUMO} % Fonte padronizada
     \end{center}
-    \vspace{0.5cm}
+    \vspace{0.1cm} % Mesmo espaço do capítulo
 }{%
     \par
 }
 
 \newenvironment{abstract}{%
     \thispagestyle{empty}
-    \vspace*{0pt}
+    \vspace{0.3cm} % Mesmo espaço do capítulo
     \begin{center}
-        {\fontsize{14pt}{16pt}\selectfont\bfseries ABSTRACT}
+        {\fontsize{12pt}{14pt}\selectfont\bfseries ABSTRACT} % Fonte padronizada
     \end{center}
-    \vspace{0.5cm}
+    \vspace{0.1cm} % Mesmo espaço do capítulo
 }{%
     \par
 }
 
 % ============================================================
-% FORMATAÇÃO DE CAPÍTULOS E SEÇÕES (MÉTODO INFALÍVEL)
+% FORMATAÇÃO DE CAPÍTULOS E SEÇÕES
 % ============================================================
 
 % 1. Remove qualquer formatação anterior de capítulos
 \titleformat{\chapter}[block]{}{}{}{}
 \titlespacing*{\chapter}{0pt}{0pt}{0pt}
 
-% 2. Cria o comando para o título do capítulo (centralizado, 14pt, negrito, maiúsculo)
+% 2. Cria o comando para o título do capítulo (centralizado, 12pt, negrito, maiúsculo)
 \newcommand{\meuTituloCapitulo}[1]{%
-    \vspace{1.5cm} % Espaço antes do capítulo
+    \vspace{0.3cm} % Espaço antes do capítulo
     \begin{center}
-        {\fontsize{14pt}{16pt}\selectfont\bfseries \MakeUppercase{#1}}
+        {\fontsize{12pt}{14pt}\selectfont\bfseries \MakeUppercase{#1}} % Fonte reduzida
     \end{center}
-    \vspace{0.5cm} % Espaço depois do capítulo
+    \vspace{0.1cm} % Espaço depois do capítulo
 }
 
 % 3. Redefine o comando \chapter usando a classe book nativa
