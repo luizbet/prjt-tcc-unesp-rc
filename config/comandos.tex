@@ -161,5 +161,32 @@
 \newcommand{\citacao}[1]{\textit{#1}}
 
 % ============================================================
+% APLICAÇÃO DAS MARGENS (LÓGICA CORRIGIDA)
+% ============================================================
+\ifnum\margensespelhadas=1
+    % MARGENS ESPELHADAS (Para impressão frente e verso / encadernação)
+    \geometry{
+        a4paper,
+        twoside,
+        top=3cm,
+        bottom=2cm,
+        inner=3cm,
+        outer=2cm,
+        headheight=14.5pt
+    }
+\else
+    % MARGENS FIXAS (Para leitura em tela ou impressão simples)
+    \geometry{
+        a4paper,
+        top=3cm,
+        bottom=2cm,
+        left=2cm,
+        right=2cm,
+        headheight=14.5pt,
+        asymmetric
+    }
+\fi
+
+% ============================================================
 % FIM DO ARQUIVO comandos.tex
 % ============================================================

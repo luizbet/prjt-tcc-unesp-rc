@@ -19,17 +19,16 @@
         \includegraphics[width=2.5cm, keepaspectratio]{logos/logo-igce.pdf}%
     };
     
-    % --- 3. CAIXA INSTITUCIONAL ---
+    % --- 3. CABEÇALHO INSTITUCIONAL (PADRONIZADO COM A CAPA) ---
     \begin{scope}[shift={(current page.north)}, yshift=-1.5cm]
-        \def\boxWidth{10cm}
-        \def\boxHeight{2.5cm}
-        \node[align=center, text=black, font=\fontfamily{lmss}\selectfont\bfseries, anchor=center] at (0, -\boxHeight/2) {%
-            \parbox{\boxWidth-0.2cm}{%
+        \node[align=center, text=black, font=\fontfamily{lmss}\selectfont\bfseries, anchor=center] at (0, -1.25cm) {%
+            \parbox{12cm}{%
                 \centering
                 \setlength{\baselineskip}{14pt}%
                 \MakeUppercase{\universidade} \\
-                "\MakeUppercase{\universidadenome}" \\
-                \MakeUppercase{\institutenome} -- \MakeUppercase{\cidade}
+                ``\MakeUppercase{\universidadenome}'' \\
+                \MakeUppercase{\institutenome} \\
+                \MakeUppercase{\campus}
             }%
         };
     \end{scope}
