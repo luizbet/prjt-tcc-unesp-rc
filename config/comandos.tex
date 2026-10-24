@@ -1,0 +1,163 @@
+% ============================================================
+% COMANDOS PERSONALIZADOS - prjt-tcc-unesp-rc
+% ============================================================
+
+% ----- CONTROLE DE ATIVAÇÃO DOS PRÉ-TEXTUAIS -----
+\newcommand{\exibirResumo}{%
+    \input{conteudo/03-pre-tex/resumo}%
+}
+
+\newcommand{\exibirAbstract}{%
+    \input{conteudo/03-pre-tex/abstract}%
+    \clearpage
+}
+
+% ----- COMANDO PARA EXIBIR SUMÁRIO (SEM NUMERAÇÃO) -----
+\newcommand{\exibirSumario}{%
+    \vspace*{0pt}
+    \begin{center}
+        {\fontsize{14pt}{16pt}\selectfont\bfseries SUMÁRIO}
+    \end{center}
+    \vspace{-3cm}
+    \renewcommand{\contentsname}{}
+    \thispagestyle{empty}
+    \tableofcontents
+    \thispagestyle{empty}
+    \clearpage
+}
+
+% ----- COMANDOS PARA PÓS-TEXTUAIS -----
+\newcommand{\exibirApêndices}{%
+    \ifnum\ativarApêndices=1
+        \input{conteudo/06-pos-tex/02-apendices}%
+    \fi
+}
+
+\newcommand{\exibirAnexos}{%
+    \ifnum\ativarAnexos=1
+        \input{conteudo/06-pos-tex/01-anexos}%
+    \fi
+}
+
+% ----- AMBIENTES PRÉ-TEXTUAIS -----
+\newenvironment{resumo}{%
+    \thispagestyle{empty}
+    \vspace*{0pt}
+    \begin{center}
+        {\fontsize{14pt}{16pt}\selectfont\bfseries RESUMO}
+    \end{center}
+    \vspace{0.5cm}
+}{%
+    \par
+}
+
+\newenvironment{abstract}{%
+    \thispagestyle{empty}
+    \vspace*{0pt}
+    \begin{center}
+        {\fontsize{14pt}{16pt}\selectfont\bfseries ABSTRACT}
+    \end{center}
+    \vspace{0.5cm}
+}{%
+    \par
+}
+
+% ============================================================
+% FORMATAÇÃO DE CAPÍTULOS E SEÇÕES (MÉTODO INFALÍVEL)
+% ============================================================
+
+% 1. Remove qualquer formatação anterior de capítulos
+\titleformat{\chapter}[block]{}{}{}{}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+% 2. Cria o comando para o título do capítulo (centralizado, 14pt, negrito, maiúsculo)
+\newcommand{\meuTituloCapitulo}[1]{%
+    \vspace{1.5cm} % Espaço antes do capítulo
+    \begin{center}
+        {\fontsize{14pt}{16pt}\selectfont\bfseries \MakeUppercase{#1}}
+    \end{center}
+    \vspace{0.5cm} % Espaço depois do capítulo
+}
+
+% 3. Redefine o comando \chapter usando a classe book nativa
+\makeatletter
+\renewcommand{\chapter}[1]{%
+    \par\refstepcounter{chapter}%
+    \meuTituloCapitulo{#1}%
+    \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+}
+\makeatother
+
+% 4. Configuração das seções (esquerda, negrito)
+\titleformat{\section}
+    {\normalfont\normalsize\bfseries\raggedright}
+    {\thesection}
+    {0.5em}
+    {}
+
+\titleformat{\subsection}
+    {\normalfont\normalsize\bfseries\raggedright}
+    {\thesubsection}
+    {0.5em}
+    {}
+
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\itshape\raggedright}
+    {\thesubsubsection}
+    {0.5em}
+    {}
+
+% ============================================================
+% CONFIGURAÇÃO DO CABEÇALHO (NUMERAÇÃO SUPERIOR DIREITA)
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{}
+\renewcommand{\sectionmark}[1]{}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyhead[R]{\thepage}%
+    \renewcommand{\headrulewidth}{0pt}%
+}
+
+% ============================================================
+% COMANDOS ÚTEIS PARA FIGURAS E TABELAS
+% ============================================================
+\newcommand{\figura}[4]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1]{#2}
+        \caption{#3}
+        \label{fig:#4}
+    \end{figure}
+}
+
+\newcommand{\tabela}[4]{%
+    \begin{table}[H]
+        \centering
+        \caption{#1}
+        \label{tab:#2}
+        #3
+        \fonte{#4}
+    \end{table}
+}
+
+\newcommand{\fonte}[1]{%
+    \vspace{0.2cm}
+    \par\small\textbf{Fonte:} #1
+}
+
+\newcommand{\nota}[1]{%
+    \vspace{0.2cm}
+    \par\small\textbf{Nota:} #1
+}
+
+\newcommand{\destaque}[1]{\textbf{#1}}
+\newcommand{\citacao}[1]{\textit{#1}}
+
+% ============================================================
+% FIM DO ARQUIVO comandos.tex
+% ============================================================

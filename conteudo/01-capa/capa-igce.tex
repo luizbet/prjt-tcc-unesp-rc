@@ -1,0 +1,111 @@
+% ============================================================
+% CAPA IGCE - Projeto de TCC
+% ============================================================
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % ============================================================
+    % IMAGEM DE FUNDO
+    % ============================================================
+    \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+        \includegraphics[width=\paperwidth, height=\paperheight]{logos/unesp-logo-fundo.pdf}%
+    };
+    
+    % --- 1. LOGO DA UNESP ---
+    \node[anchor=north west, xshift=0.8cm, yshift=-1.3cm] at (current page.north west) {%
+        \includegraphics[width=4.8cm, keepaspectratio]{logos/logo-unesp.pdf}%
+    };
+    
+    % --- 2. LOGO DO IGCE ---
+    \node[anchor=north east, xshift=-1.8cm, yshift=-1cm] at (current page.north east) {%
+        \includegraphics[width=2.5cm, keepaspectratio]{logos/logo-igce.pdf}%
+    };
+    
+    % --- 3. CAIXA INSTITUCIONAL ---
+    \begin{scope}[shift={(current page.north)}, yshift=-1.5cm]
+        \def\boxWidth{10cm}
+        \def\boxHeight{2.5cm}
+        \node[align=center, text=black, font=\fontfamily{lmss}\selectfont\bfseries, anchor=center] at (0, -\boxHeight/2) {%
+            \parbox{\boxWidth-0.2cm}{%
+                \centering
+                \setlength{\baselineskip}{14pt}%
+                \MakeUppercase{\universidade} \\
+                "\MakeUppercase{\universidadenome}" \\
+                \MakeUppercase{\institutenome} -- \MakeUppercase{\cidade}
+            }%
+        };
+    \end{scope}
+    
+    % --- 4. LINHA SUPERIOR ---
+    \begin{scope}[shift={(current page.north)}, yshift=-5.1cm]
+        \draw[black, line width=1.8pt] (-7.5cm, 0) -- (7.5cm, 0);
+    \end{scope}
+    
+    % --- 5. CAIXA DO DEPARTAMENTO ---
+    \begin{scope}[shift={(current page.north)}, yshift=-5.2cm]
+        \node[align=center, text=black, font=\fontfamily{lmss}\fontsize{10pt}{16pt}\selectfont\bfseries, anchor=center] at (0, -0.6cm) {%
+            \parbox{13.8cm}{%
+                \centering
+                \MakeUppercase{\departamento}%
+            }%
+        };
+    \end{scope}
+    
+    % --- 6. LINHA INFERIOR ---
+    \begin{scope}[shift={(current page.north)}, yshift=-6.5cm]
+        \draw[black, line width=1.8pt] (-7.5cm, 0) -- (7.5cm, 0);
+    \end{scope}
+
+    % --- 6.5. TEXTO DO PROJETO ---
+    \begin{scope}[shift={(current page.north)}, yshift=-8cm]
+        \node[align=center, text=black, font=\fontspec{Arial}\fontsize{12pt}{14pt}\selectfont, anchor=center] at (0, -1cm) {%
+            \parbox{13.8cm}{%
+                \centering
+                \setlength{\baselineskip}{14pt}%
+                Projeto de Trabalho de Conclusão de Curso \\
+                Graduação em \curso
+            }%
+        };
+    \end{scope}
+    
+    % --- 7. TÍTULO E SUBTÍTULO ---
+    \begin{scope}[shift={(current page.north)}, yshift=-12.5cm]
+        \node[align=center, text=black, font=\fontspec{Arial}\fontsize{14pt}{18pt}\bfseries\selectfont, anchor=center] at (0, -2cm) {%
+            \parbox{13.8cm}{%
+                \centering
+                \setlength{\baselineskip}{18pt}%
+                \MakeUppercase{\titulo}%
+                \ifx\subtitulo\empty\else
+                    \\[2pt]
+                    {\fontspec{Arial}\fontsize{14pt}{16pt}\bfseries\selectfont\color{black}%
+                        \subtitulo%
+                    }%
+                \fi
+            }%
+        };
+    \end{scope}
+    
+    % --- 8. AUTOR E ORIENTADOR (Caixa única) ---
+    \node[anchor=south east, text=black, font=\fontspec{Arial}\fontsize{10pt}{12pt}\selectfont,
+          xshift=-2cm, yshift=7cm] at (current page.south east) {%
+        \parbox{10cm}{%
+            \raggedleft
+            \setlength{\baselineskip}{14pt}%
+            \textbf{Discente:} \autor \\[0.2cm]
+            \textbf{\orientadorfuncao:} \orientadornome%
+        }%
+    };
+
+    % --- 9. CIDADE E ANO ---
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont\color{black}, yshift=62pt] at (current page.south) {%
+        \cidade\ \textendash\ \estado%
+    };
+    
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont\color{black}, yshift=45pt] at (current page.south) {%
+        \MakeUppercase{\ano}%
+    };
+    
+\end{tikzpicture}
+
+\clearpage

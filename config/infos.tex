@@ -1,0 +1,180 @@
+% ============================================================
+% INFORMAÇÕES DO PROJETO - UNESP
+% ============================================================
+
+% ----- DADOS DO ALUNO (EDITAR) -----
+\newcommand{\autor}{Nome do Aluno}
+\newcommand{\autorgenero}{f} % m | f (Define se é "Graduando" ou "Graduanda")
+
+% ----- TIPO DE CURSO (EDITAR) -----
+% Descomente a sua escolha:
+%\newcommand{\tipocurso}{licenciatura}
+\newcommand{\tipocurso}{bacharelado} 
+
+% ----- DADOS DO ORIENTADOR (EDITAR) -----
+\newcommand{\orientador}{Nome do Orientador}
+\newcommand{\orientadortitulo}{Profa. Dra.} % Ou Prof. Dr.
+\newcommand{\orientadorgenero}{f} % m | f
+
+% ----- DADOS DO COORIENTADOR (OPCIONAL) -----
+% Deixe o nome vazio se não houver coorientador: \newcommand{\coorientador}{}
+\newcommand{\coorientador}{} 
+\newcommand{\coorientadortitulo}{Prof. Dr.} % Ou Profa. Dra.
+\newcommand{\coorientadorgenero}{m} % m | f
+
+% ----- CAMPUS E DATA (EDITAR) -----
+\newcommand{\cidade}{Rio Claro}
+\newcommand{\estado}{SP}
+\newcommand{\campus}{\textit{Câmpus} de \cidade}
+\newcommand{\ano}{\the\year} 
+\newcommand{\mes}{\ifcase\month\or Janeiro\or Fevereiro\or Março\or Abril\or Maio\or Junho\or Julho\or Agosto\or Setembro\or Outubro\or Novembro\or Dezembro\fi}
+
+% ----- TÍTULO E SUBTÍTULO (EDITAR) -----
+\newcommand{\titulo}{Título do Projeto de TCC:}
+\newcommand{\subtitulo}{Subtítulo do Projeto (se houver)}
+
+% ============================================================
+% CONTROLE DOS PRÉ-TEXTUAIS E PÓS-TEXTUAIS (EDITAR)
+% ============================================================
+\newcommand{\ativarApêndices}{0}
+\newcommand{\ativarAnexos}{0}
+
+% ============================================================
+% CONFIGURAÇÕES INSTITUCIONAIS (NÃO ALTERAR)
+% ============================================================
+
+\newcommand{\universidade}{Universidade Estadual Paulista}
+\newcommand{\universidadenome}{Júlio de Mesquita Filho}
+\newcommand{\universidadeabreviada}{UNESP}
+
+% --- SELEÇÃO DO CURSO (ESCOLHA APENAS UM, DESCOMENTANDO A LINHA) ---
+
+% === INSTITUTO DE BIOCIÊNCIAS (IB) ===
+ \def\meuCurso{ciencias-biologicas}
+% \def\meuCurso{ecologia}
+% \def\meuCurso{educacao-fisica}
+% \def\meuCurso{pedagogia}
+
+% === INSTITUTO DE GEOCIÊNCIAS (IGCE) ===
+% \def\meuCurso{geografia}
+% \def\meuCurso{ciencias-computacao}
+% \def\meuCurso{engenharia-ambiental}
+% \def\meuCurso{fisica}
+% \def\meuCurso{geologia}
+% \def\meuCurso{matematica}
+
+% --- MAPEAMENTO CURSO -> INSTITUTO, DEPARTAMENTO, SIGLA ---
+\IfStrEq{\meuCurso}{ciencias-biologicas}{%
+    \newcommand{\institutenome}{Instituto de Biociências}
+    \newcommand{\institutoabreviado}{IB}
+    \newcommand{\curso}{Ciências Biológicas}
+    \newcommand{\departamento}{Departamento de Biologia Geral e Aplicada}
+}{%
+\IfStrEq{\meuCurso}{ecologia}{%
+    \newcommand{\institutenome}{Instituto de Biociências}
+    \newcommand{\institutoabreviado}{IB}
+    \newcommand{\curso}{Ecologia}
+    \newcommand{\departamento}{Departamento de Biodiversidade}
+}{%
+\IfStrEq{\meuCurso}{educacao-fisica}{%
+    \newcommand{\institutenome}{Instituto de Biociências}
+    \newcommand{\institutoabreviado}{IB}
+    \newcommand{\curso}{Educação Física}
+    \newcommand{\departamento}{Departamento de Educação}
+}{%
+\IfStrEq{\meuCurso}{pedagogia}{%
+    \newcommand{\institutenome}{Instituto de Biociências}
+    \newcommand{\institutoabreviado}{IB}
+    \newcommand{\curso}{Pedagogia}
+    \newcommand{\departamento}{Departamento de Educação}
+}{%
+\IfStrEq{\meuCurso}{ciencias-computacao}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Ciências da Computação}
+    \newcommand{\departamento}{Departamento de Estatística, Matemática Aplicada e Computação}
+}{%
+\IfStrEq{\meuCurso}{engenharia-ambiental}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Engenharia Ambiental}
+    \newcommand{\departamento}{Departamento de Geologia Aplicada e Ambiental}
+}{%
+\IfStrEq{\meuCurso}{fisica}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Física}
+    \newcommand{\departamento}{Departamento de Física}
+}{%
+\IfStrEq{\meuCurso}{geografia}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Geografia}
+    \newcommand{\departamento}{Departamento de Geografia e Planejamento Ambiental}
+}{%
+\IfStrEq{\meuCurso}{geologia}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Geologia}
+    \newcommand{\departamento}{Departamento de Geologia}
+}{%
+\IfStrEq{\meuCurso}{matematica}{%
+    \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
+    \newcommand{\institutoabreviado}{IGCE}
+    \newcommand{\curso}{Matemática}
+    \newcommand{\departamento}{Departamento de Matemática}
+}{%
+    % --- FALLBACK ---
+    \newcommand{\institutenome}{Instituto}
+    \newcommand{\institutoabreviado}{-}
+    \newcommand{\curso}{Curso}
+    \newcommand{\departamento}{Departamento}
+}}}}}}}}}}
+
+% ============================================================
+% COMANDOS DERIVADOS (NÃO ALTERAR - LÓGICA AUTOMÁTICA)
+% ============================================================
+
+% ----- FORMATAÇÃO DO GÊNERO DO ALUNO -----
+\ifthenelse{\equal{\autorgenero}{m}}{%
+    \newcommand{\grauautor}{Graduando}
+}{%
+    \newcommand{\grauautor}{Graduanda}
+}
+
+% ----- FORMATAÇÃO DO GÊNERO DO ORIENTADOR -----
+\ifthenelse{\equal{\orientadorgenero}{m}}{%
+    \newcommand{\orientadorfuncao}{Orientador}
+    \newcommand{\orientadorpreposicao}{pelo} % Para a frase da folha de rosto
+}{%
+    \newcommand{\orientadorfuncao}{Orientadora}
+    \newcommand{\orientadorpreposicao}{pela} % Para a frase da folha de rosto
+}
+\newcommand{\orientadornome}{\orientadortitulo\ \orientador}
+
+% ----- FORMATAÇÃO DO GÊNERO DO COORIENTADOR -----
+\ifthenelse{\equal{\coorientador}{}}{%
+    \newcommand{\temcoorientador}{false}
+    \newcommand{\coorientadornome}{}
+}{%
+    \newcommand{\temcoorientador}{true}
+    \ifthenelse{\equal{\coorientadorgenero}{m}}{%
+        \newcommand{\coorientadorfuncao}{Coorientador}
+    }{%
+        \newcommand{\coorientadorfuncao}{Coorientadora}
+    }
+    \newcommand{\coorientadornome}{\coorientadortitulo\ \coorientador}
+}
+
+% ----- TEXTO DA NATUREZA DO TRABALHO (FOLHA DE ROSTO) -----
+\newcommand{\naturezaTrabalho}{%
+    Projeto de Trabalho de Conclusão de Curso de \tipocurso\ em %
+    \curso, orientado \orientadorpreposicao\ \orientadornome, %
+    apresentado ao Conselho do Curso de Graduação em \curso\ %
+    da \universidade\ \enquote{\universidadenome} -- %
+    UNESP / \campus.%
+}
+
+% ============================================================
+% FIM DO ARQUIVO infos.tex
+% ============================================================

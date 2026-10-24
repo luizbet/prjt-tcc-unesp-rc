@@ -1,0 +1,85 @@
+% ============================================================
+% PROJETO DE TCC - UNESP
+% ============================================================
+
+\documentclass[12pt, a4paper, openany]{book}
+
+\input{config/pacotes}
+\input{config/infos}
+\input{config/comandos}
+
+\begin{document}
+
+% --- TRAVA DE JUSTIFICAÇÃO E RECUO GLOBAL ---
+\justifying
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% --- CAPA ---
+\IfStrEq{\institutoabreviado}{IGCE}{%
+    \input{conteudo/01-capa/capa-igce}%
+}{%
+    \IfStrEq{\institutoabreviado}{IB}{%
+        \input{conteudo/01-capa/capa-ib}%
+    }{%
+        \input{conteudo/01-capa/capa-igce}%
+    }%
+}
+\thispagestyle{empty}
+
+% --- FOLHA DE ROSTO ---
+\IfStrEq{\institutoabreviado}{IGCE}{%
+    \input{conteudo/02-folha-rosto/folha-rosto-igce}%
+}{%
+    \IfStrEq{\institutoabreviado}{IB}{%
+        \input{conteudo/02-folha-rosto/folha-rosto-ib}%
+    }{%
+        \input{conteudo/02-folha-rosto/folha-rosto-igce}%
+    }%
+}
+\thispagestyle{empty}
+
+% --- ZERA A CONTAGEM DE PÁGINAS ANTES DA CAPA ---
+\setcounter{page}{1}
+
+% --- PRÉ-TEXTUAIS (Obrigatórios) ---
+\exibirResumo
+\exibirAbstract
+\exibirSumario
+
+% --- TEXTUAIS ---
+\input{conteudo/04-capitulos/01-intro}
+\input{conteudo/04-capitulos/02-fundm}
+\input{conteudo/04-capitulos/03-obj}
+\input{conteudo/04-capitulos/04-metd}
+\input{conteudo/04-capitulos/05-crono}
+\input{conteudo/04-capitulos/06-contrib}
+\input{conteudo/04-capitulos/07-consid}
+
+% --- REFERÊNCIAS ---
+% Desativa a numeração do capítulo para as referências
+\renewcommand{\thechapter}{}
+
+% Cria o título usando a SUA formatação (centralizado, maiúsculo, sem quebra de página)
+% O seu comando \chapter personalizado já adiciona automaticamente ao Sumário
+\chapter{REFERÊNCIAS}
+
+% Muda a formatação do texto para alinhado à esquerda e espaço simples (Padrão ABNT)
+\begingroup
+\raggedright
+\singlespacing
+\printbibliography[heading=none]
+\endgroup
+
+% Restaura a numeração dos capítulos (caso haja algum anexo depois)
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% --- PÓS-TEXTUAIS (Opcionais) ---
+\exibirAnexos
+\exibirApêndices
+
+\end{document}
+
+% ============================================================
+% FIM DO ARQUIVO main.tex
+% ============================================================

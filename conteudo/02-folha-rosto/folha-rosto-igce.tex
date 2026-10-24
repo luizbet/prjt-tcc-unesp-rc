@@ -1,0 +1,136 @@
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+
+    % ============================================================
+    % IMAGEM DE FUNDO
+    % ============================================================
+    \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+        \includegraphics[width=\paperwidth, height=\paperheight]{logos/unesp-logo-fundo.pdf}%
+    };
+    
+    % --- 1. LOGO DA UNESP ---
+    \node[anchor=north west, xshift=0.8cm, yshift=-1.3cm] at (current page.north west) {%
+        \includegraphics[width=4.8cm, keepaspectratio]{logos/logo-unesp.pdf}%
+    };
+    
+    % --- 2. LOGO DO IGCE ---
+    \node[anchor=north east, xshift=-1.8cm, yshift=-1cm] at (current page.north east) {%
+        \includegraphics[width=2.5cm, keepaspectratio]{logos/logo-igce.pdf}%
+    };
+    
+    % --- 3. CAIXA INSTITUCIONAL ---
+    \begin{scope}[shift={(current page.north)}, yshift=-1.5cm]
+        \def\boxWidth{10cm}
+        \def\boxHeight{2.5cm}
+        \node[align=center, text=black, font=\fontfamily{lmss}\selectfont\bfseries, anchor=center] at (0, -\boxHeight/2) {%
+            \parbox{\boxWidth-0.2cm}{%
+                \centering
+                \setlength{\baselineskip}{14pt}%
+                \MakeUppercase{\universidade} \\
+                "\MakeUppercase{\universidadenome}" \\
+                \MakeUppercase{\institutenome} -- \MakeUppercase{\cidade}
+            }%
+        };
+    \end{scope}
+    
+    % --- 4. LINHA SUPERIOR ---
+    \begin{scope}[shift={(current page.north)}, yshift=-5.1cm]
+        \draw[black, line width=1.8pt] (-7.5cm, 0) -- (7.5cm, 0);
+    \end{scope}
+    
+    % --- 5. CAIXA DO DEPARTAMENTO ---
+    \begin{scope}[shift={(current page.north)}, yshift=-5.2cm]
+        \node[align=center, text=black, font=\fontfamily{lmss}\fontsize{10pt}{16pt}\selectfont\bfseries, anchor=center] at (0, -0.6cm) {%
+            \parbox{13.8cm}{%
+                \centering
+                \MakeUppercase{\departamento}%
+            }%
+        };
+    \end{scope}
+    
+    % --- 6. LINHA INFERIOR ---
+    \begin{scope}[shift={(current page.north)}, yshift=-6.5cm]
+        \draw[black, line width=1.8pt] (-7.5cm, 0) -- (7.5cm, 0);
+    \end{scope}
+    
+    % ============================================================
+    % ELEMENTOS DE TEXTO
+    % ============================================================
+    
+    % ===== NOME DO AUTOR =====
+    \node[anchor=south, yshift=605pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\autor}}%
+        }%
+    };
+    
+    % ===== TÍTULO =====
+    \node[anchor=south, yshift=506pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\titulo}}%
+        }%
+    };
+    
+    % ===== SUBTÍTULO =====
+    \node[anchor=south, yshift=472pt, align=center] at (current page.south) {%
+        \parbox{0.7\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\subtitulo}}%
+        }%
+    };
+    
+    % ===== TEXTO DE APRESENTAÇÃO (Natureza do Trabalho) =====
+    \node[anchor=north, yshift=392pt, xshift=150pt, align=center] at (current page.south) {%
+        \parbox{0.85\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{11pt}% 
+            \parbox{75mm}{% 
+                \justifying
+                \hyphenpenalty=10000
+                \exhyphenpenalty=10000
+                \noindent
+                {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                    \naturezaTrabalho%
+                \par}%
+                \vspace{15pt}%
+                \noindent
+                {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                    \orientadorfuncao: \orientadornome%
+                \par}%
+                \ifthenelse{\equal{\temcoorientador}{true}}{%
+                    \vspace{2pt}%
+                    \noindent
+                    {\fontspec{Times New Roman}\fontsize{12pt}{10pt}\selectfont%
+                        \coorientadorfuncao: \coorientadornome%
+                    \par}%
+                }{}%
+            }%
+        }%
+    };
+    
+    % ============================================================
+    % RODAPÉ
+    % ============================================================
+    % ===== CIDADE E ANO =====
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont\color{black}, yshift=62pt] at (current page.south) {%
+        \cidade\ \textendash\ \estado%
+    };
+    
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont\color{black}, yshift=45pt] at (current page.south) {%
+        \MakeUppercase{\ano}%
+    };
+    
+\end{tikzpicture}
+
+\clearpage

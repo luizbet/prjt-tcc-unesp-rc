@@ -1,0 +1,51 @@
+% ============================================================
+% ABSTRACT
+% ============================================================
+
+% ----- TÍTULO E SUBTÍTULO EM INGLÊS (EDITAR AQUI) -----
+\newcommand{\tituloingles}{Title in English}
+\newcommand{\subtituloingles}{Subtitle in English (optional)} % Deixe vazio se não houver
+
+% ----- KEYWORDS (EDITAR AQUI) -----
+\newcommand{\keywordum}{Keyword 1}
+\newcommand{\keyworddois}{Keyword 2}
+\newcommand{\keywordtres}{Keyword 3}
+\newcommand{\keywordquatro}{} % Deixe vazio se não houver
+\newcommand{\keywordcinco}{} % Deixe vazio se não houver
+
+\begin{abstract}
+
+% --- TEXTO DO ABSTRACT (12pt, ESPAÇAMENTO SIMPLES, SEM RECUO, JUSTIFICADO) ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\singlespacing
+\normalsize
+
+Write your abstract here. It should be a single paragraph between 150 and 500 words, clearly presenting the introduction, objective, methodology, expected results, and conclusions of your project.
+
+\vspace{0.5cm}
+
+% --- FORMATAÇÃO AUTOMÁTICA DAS KEYWORDS ---
+{\normalsize\bfseries Keywords:} \normalsize
+\keywordum. \keyworddois. \keywordtres.%
+\ifx\keywordquatro\empty\else
+    \ \keywordquatro.%
+\fi
+\ifx\keywordcinco\empty\else
+    \ \keywordcinco.%
+\fi
+
+\vspace{0.5cm}
+
+% --- TÍTULO EM INGLÊS (Mesma formatação das Keywords) ---
+{\normalsize\bfseries Title:} \normalsize
+\tituloingles%
+\ifx\subtituloingles\empty\else
+    : \subtituloingles%
+\fi
+
+\end{abstract}
+
+% ============================================================
+% FIM DO ARQUIVO abstract.tex
+% ============================================================

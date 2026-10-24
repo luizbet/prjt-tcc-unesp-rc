@@ -1,19 +1,19 @@
 {
     "latex-workshop.latex.recipes": [
         {
-            "name": "pdflatex -> bibtex -> pdflatex -> pdflatex",
+            "name": "xelatex → biber → xelatex → xelatex",
             "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
+                "xelatex",
+                "biber",
+                "xelatex",
+                "xelatex"
             ]
         }
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "pdflatex",
-            "command": "pdflatex",
+            "name": "xelatex",
+            "command": "xelatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "name": "bibtex",
-            "command": "bibtex",
+            "name": "biber",
+            "command": "biber",
             "args": [
-                "out/%DOCFILE%"
+                "out/main"
             ]
         }
     ],
@@ -59,7 +59,9 @@
         "*.snm",
         "*.vrb",
         "*.dvi",
-        "*.synctex.gz"
+        "*.synctex.gz",
+        "*.bcf",
+        "*.run.xml"
     ],
     "cSpell.language": "pt,en",
     "cSpell.enableFiletypes": [
